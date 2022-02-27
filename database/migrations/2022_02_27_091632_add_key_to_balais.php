@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTipeBalaisTable extends Migration
+class AddKeyToBalais extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateTipeBalaisTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipe_balais', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_tipe')->nullable();
-            $table->timestamps();
+        Schema::table('balais', function (Blueprint $table) {
+            $table->foreignId('tipe_id')->constrained('tipe_balais');
+
         });
     }
 
@@ -27,6 +26,8 @@ class CreateTipeBalaisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipe_balais');
+        Schema::table('balais', function (Blueprint $table) {
+            //
+        });
     }
 }
