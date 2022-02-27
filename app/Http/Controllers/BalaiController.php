@@ -57,7 +57,7 @@ class BalaiController extends Controller
         //INSERT INTO balai (nama_satker,alamat,kota,tipe_balai) VALUES ('$nama_satker','$alamat','$kota','$tipe_balai')
         Balai::create($input);
         //redirect to index balai
-        return redirect()->route('balai.index');
+        return redirect()->route('balai.index')->with('success','Data berhasil ditambahkan');
     }
 
     /**
@@ -77,9 +77,12 @@ class BalaiController extends Controller
      * @param  \App\Models\Balai  $balai
      * @return \Illuminate\Http\Response
      */
-    public function edit(Balai $balai)
+    public function edit($id)
     {
-        //
+        //passing to edit page
+        $balai = Balai::find($id);
+        //redirect to eidt page
+        return view('balai.edit',compact('balai'));
     }
 
     /**
@@ -89,9 +92,26 @@ class BalaiController extends Controller
      * @param  \App\Models\Balai  $balai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Balai $balai)
+    public function update(Request $request, $id)
     {
-        //
+        //update data balai
+        $this->validate($request,[
+            'nama_satker' => 'required',
+            'alamat' => 'required',
+            'kota' => 'required',
+            'tipe_balai' => 'required'
+        ]);
+        $balai = Balai::find($id);
+        $balai->nama_satker = $request->input('nama_satker');
+        $balai->alamat = $request->input('alamat');
+        $balai->kota = $request->input('kota');
+        $balai->tipe_balai = $request->input('tipe_balai');
+        //save / update
+        $balai->save();
+        // dd($balai);
+        //redirect to index balai
+        return redirect()->route('balai.index')->with('success','Data berhasil diubah');
+
     }
 
     /**
@@ -100,8 +120,10 @@ class BalaiController extends Controller
      * @param  \App\Models\Balai  $balai
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Balai $balai)
+    public function destroy($id)
     {
         //
+        Balai::destroy($id);
+        return redirect()->route('balai.index')->with('success','Data berhasil dihapus');
     }
 }

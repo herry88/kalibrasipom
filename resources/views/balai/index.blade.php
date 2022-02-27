@@ -10,7 +10,7 @@
             <h1>Data Balai</h1>
         </div>
         <div class="section-body">
-            {{-- untuk menampilkan pesan sukses  --}}
+            {{-- untuk menampilkan pesan sukses --}}
             @if ($message = Session::get('success'))
                 <div class="alert alert-success">
                     <p>{{ $message }}</p>
@@ -40,6 +40,12 @@
                                             <td>{{ $b->nama_satker }}</td>
                                             <td>{{ $b->alamat }}</td>
                                             <td>{{ $b->kota }}</td>
+                                            <td>
+                                                <a href="{{ route('balai.edit', $b->id) }}" class="btn btn-warning"
+                                                    title="Edit"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ route('balai.destroy', $b->id) }}" class="btn btn-danger"
+                                                    title="Hapus"><i class="fas fa-trash"></i></a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
