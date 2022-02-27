@@ -42,7 +42,22 @@ class BalaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //function add to database
+        //untuk menampilkan pesan error
+        $this->validate($request,[
+            'nama_satker' => 'required',
+            'alamat' => 'required',
+            'kota' => 'required',
+            'tipe_balai' => 'required'
+        ]);
+        //mengambil data dari form
+        //$nama_satker = $_POST['nama_satker'];
+        $input = $request->all();
+        //insert data ke table balai
+        //INSERT INTO balai (nama_satker,alamat,kota,tipe_balai) VALUES ('$nama_satker','$alamat','$kota','$tipe_balai')
+        Balai::create($input);
+        //redirect to index balai
+        return redirect()->route('balai.index');
     }
 
     /**

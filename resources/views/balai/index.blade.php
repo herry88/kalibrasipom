@@ -10,6 +10,12 @@
             <h1>Data Balai</h1>
         </div>
         <div class="section-body">
+            {{-- untuk menampilkan pesan sukses  --}}
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-12">
                     <div class="card">
