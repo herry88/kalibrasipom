@@ -16,9 +16,10 @@
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                 <span>Data Master </span></a>
             <ul class="dropdown-menu">
-                <li><a class="nav-link" href="{{ route('balai.index') }}">Data Balai</a></li>
-                <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a>
+                <li><a class="nav-link" href="{{ route('tipebalai.index') }}">Data Tipe Balai</a>
                 </li>
+                <li><a class="nav-link" href="{{ route('balai.index') }}">Data Balai</a></li>
+
                 <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
             </ul>
         </li>

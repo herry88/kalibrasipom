@@ -14,7 +14,9 @@ class TipeBalaiController extends Controller
      */
     public function index()
     {
-        //
+        //Tipeabalai::all()->toArray();
+        $tipe_balais = TipeBalai::all();
+        return view('tipebalai.index', compact('tipe_balais'));
     }
 
     /**
@@ -25,6 +27,7 @@ class TipeBalaiController extends Controller
     public function create()
     {
         //
+        return view('tipebalai.create');
     }
 
     /**
@@ -35,7 +38,13 @@ class TipeBalaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validasi
+        $this->validate($request, [
+            'nama_tipe' => 'required|unique:tipe_balais',
+        ]);
+        $input = $request->all();
+        TipeBalai::create($input);
+        return redirect()->route('tipebalai.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
