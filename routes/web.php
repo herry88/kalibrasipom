@@ -45,3 +45,5 @@ Route::get('balai/destroy/{id}',[\App\Http\Controllers\BalaiController::class, '
 Route::resource('tipebalai', \App\Http\Controllers\TipeBalaiController::class);
 //rute untuk destroy tipe balai
 Route::get('tipebalai/destroy/{id}',[\App\Http\Controllers\TipeBalaiController::class, 'destroy'])->name('tipebalai.destroy');
+
+Route::resource('jabatan', \App\Http\Controllers\JabatanController::class);
