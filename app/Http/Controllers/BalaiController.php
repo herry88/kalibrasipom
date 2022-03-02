@@ -48,7 +48,7 @@ class BalaiController extends Controller
             'nama_satker' => 'required',
             'alamat' => 'required',
             'kota' => 'required',
-            'tipe_balai' => 'required'
+            'tipe_id' => 'required'
         ]);
         //mengambil data dari form
         //$nama_satker = $_POST['nama_satker'];

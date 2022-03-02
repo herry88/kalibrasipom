@@ -45,7 +45,7 @@
                             </tr>
                             <tr>
                                 <td>Tipe Balai</td>
-                                <td><input type="text" name="tipe_balai" value="1" class="form-control"></td>
+                                <td><input type="text" name="tipe_id" value="1" class="form-control"></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
