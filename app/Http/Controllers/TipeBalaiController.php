@@ -14,7 +14,9 @@ class TipeBalaiController extends Controller
      */
     public function index()
     {
-        //
+        //Tipeabalai::all()->toArray();
+        $tipe_balais = TipeBalai::all();
+        return view('tipebalai.index', compact('tipe_balais'));
     }
 
     /**
@@ -25,6 +27,7 @@ class TipeBalaiController extends Controller
     public function create()
     {
         //
+        return view('tipebalai.create');
     }
 
     /**
@@ -35,7 +38,13 @@ class TipeBalaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validasi
+        $this->validate($request, [
+            'nama_tipe' => 'required|unique:tipe_balais',
+        ]);
+        $input = $request->all();
+        TipeBalai::create($input);
+        return redirect()->route('tipebalai.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -55,9 +64,11 @@ class TipeBalaiController extends Controller
      * @param  \App\Models\TipeBalai  $tipeBalai
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipeBalai $tipeBalai)
+    public function edit($id)
     {
-        //
+        //redirect to edit tipe balai page
+        $tipe_balai = TipeBalai::find($id);
+        return view('tipebalai.edit', compact('tipe_balai'));
     }
 
     /**
@@ -67,9 +78,16 @@ class TipeBalaiController extends Controller
      * @param  \App\Models\TipeBalai  $tipeBalai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TipeBalai $tipeBalai)
+    public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'nama_tipe' => 'required|unique:tipe_balais',
+        ]);
+        $input = $request->all();
+        $tipe_balai = TipeBalai::find($id);
+        $tipe_balai->update($input);
+        return redirect()->route('tipebalai.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -78,8 +96,10 @@ class TipeBalaiController extends Controller
      * @param  \App\Models\TipeBalai  $tipeBalai
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TipeBalai $tipeBalai)
+    public function destroy($id)
     {
         //
+        TipeBalai::destroy($id);
+        return redirect()->route('tipebalai.index')->with('success', 'Data berhasil dihapus');
     }
 }

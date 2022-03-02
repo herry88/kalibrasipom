@@ -11,6 +11,17 @@ class Balai extends Model
     //deklarasikan table name
     protected $table = 'balais';
     //deklarasikan fillable
-    // protected $fillable = ['nama_satker','alamat','kota','tipe_balai'];
+    // protected $fillable = ['nama_satker','alamat','kota','tipe_id'];
     protected $guarded = [];
+
+    //relation to tipebalai
+    /**
+     * Get the tipebalai that owns the Balai
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function tipebalai()
+    {
+        return $this->belongsTo(TipeBalai::class, 'tipe_id');
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Balai;
+use App\Models\TipeBalai;
 use Illuminate\Http\Request;
 use DB;
 
@@ -30,8 +31,10 @@ class BalaiController extends Controller
      */
     public function create()
     {
+        //get data tipe balai
+        $tipe_balai = TipeBalai::all(); // select * from tipe_balais;
         //redirect to create page
-        return view('balai.create');
+        return view('balai.create', compact('tipe_balai'));
     }
 
     /**
@@ -48,7 +51,7 @@ class BalaiController extends Controller
             'nama_satker' => 'required',
             'alamat' => 'required',
             'kota' => 'required',
-            'tipe_balai' => 'required'
+            'tipe_id' => 'required'
         ]);
         //mengambil data dari form
         //$nama_satker = $_POST['nama_satker'];
@@ -81,8 +84,9 @@ class BalaiController extends Controller
     {
         //passing to edit page
         $balai = Balai::find($id);
+        $tipe_balai = TipeBalai::all();
         //redirect to eidt page
-        return view('balai.edit',compact('balai'));
+        return view('balai.edit',compact('balai','tipe_balai'));
     }
 
     /**
@@ -99,13 +103,13 @@ class BalaiController extends Controller
             'nama_satker' => 'required',
             'alamat' => 'required',
             'kota' => 'required',
-            'tipe_balai' => 'required'
+            'tipe_id' => 'required'
         ]);
         $balai = Balai::find($id);
         $balai->nama_satker = $request->input('nama_satker');
         $balai->alamat = $request->input('alamat');
         $balai->kota = $request->input('kota');
-        $balai->tipe_balai = $request->input('tipe_balai');
+        $balai->tipe_id = $request->input('tipe_id');
         //save / update
         $balai->save();
         // dd($balai);
