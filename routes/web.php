@@ -38,3 +38,5 @@ Route::get('list-product', [\App\Http\Controllers\BelajarController::class, 'pro
 
 //rute for balai
 Route::resource('balai', \App\Http\Controllers\BalaiController::class);
+//rute untuk delete balai
+Route::get('balai/destroy/{id}',[\App\Http\Controllers\BalaiController::class, 'destroy'])->name('balai.destroy');

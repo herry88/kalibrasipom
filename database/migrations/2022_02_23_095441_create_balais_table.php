@@ -18,7 +18,9 @@ class CreateBalaisTable extends Migration
             $table->string('nama_satker');
             $table->string('alamat');
             $table->string('kota');
-            $table->bigInteger('tipe_balai');
+            // $table->unsignedBigInteger('tipe_id');
+            // $table->foreign('tipe_id')->references('id')->on('tipe_balais')->onDelete('cascade');
+            // $table->foreignId('tipe_id')->constrained('tipe_balais');
             $table->timestamps();
         });
     }
