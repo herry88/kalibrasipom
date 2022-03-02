@@ -27,22 +27,12 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Tipe Balai</th>
+                                        <th>Jabatan</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($tipe_balais as $item)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->nama_tipe }}</td>
-                                            <td><a href="{{ route('tipebalai.edit', $item->id) }}"
-                                                    class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                                <a href="{{ route('tipebalai.destroy', $item->id) }}"
-                                                    class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>

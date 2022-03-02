@@ -47,3 +47,8 @@ Route::resource('tipebalai', \App\Http\Controllers\TipeBalaiController::class);
 Route::get('tipebalai/destroy/{id}',[\App\Http\Controllers\TipeBalaiController::class, 'destroy'])->name('tipebalai.destroy');
 
 Route::resource('jabatan', \App\Http\Controllers\JabatanController::class);
+
+//test QRCODE
+Route::get('qrcode', function () {
+    return QrCode::size(250)->generate('https://www.google.com');
+});
