@@ -103,13 +103,13 @@ class BalaiController extends Controller
             'nama_satker' => 'required',
             'alamat' => 'required',
             'kota' => 'required',
-            'tipe_balai' => 'required'
+            'tipe_id' => 'required'
         ]);
         $balai = Balai::find($id);
         $balai->nama_satker = $request->input('nama_satker');
         $balai->alamat = $request->input('alamat');
         $balai->kota = $request->input('kota');
-        $balai->tipe_balai = $request->input('tipe_balai');
+        $balai->tipe_id = $request->input('tipe_id');
         //save / update
         $balai->save();
         // dd($balai);
