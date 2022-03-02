@@ -45,7 +45,14 @@
                             </tr>
                             <tr>
                                 <td>Tipe Balai</td>
-                                <td><input type="text" name="tipe_id" value="1" class="form-control"></td>
+                                <td>
+                                    <select name="tipe_id" class="form-control">
+                                        <option value="0">- Pilih Tipe Balai -</option>
+                                        @foreach($tipe_balai as $t)
+                                            <option value="{{ $t->id }}">{{ $t->nama_tipe }}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>

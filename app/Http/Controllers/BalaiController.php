@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Balai;
+use App\Models\TipeBalai;
 use Illuminate\Http\Request;
 use DB;
 
@@ -30,8 +31,10 @@ class BalaiController extends Controller
      */
     public function create()
     {
+        //get data tipe balai
+        $tipe_balai = TipeBalai::all(); // select * from tipe_balais;
         //redirect to create page
-        return view('balai.create');
+        return view('balai.create', compact('tipe_balai'));
     }
 
     /**
@@ -81,8 +84,9 @@ class BalaiController extends Controller
     {
         //passing to edit page
         $balai = Balai::find($id);
+        $tipe_balai = TipeBalai::all();
         //redirect to eidt page
-        return view('balai.edit',compact('balai'));
+        return view('balai.edit',compact('balai','tipe_balai'));
     }
 
     /**

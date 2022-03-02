@@ -30,6 +30,7 @@
                                         <th>Nama Balai</th>
                                         <th>Alamat</th>
                                         <th>Kota</th>
+                                        <th>Tipe Balai</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -40,6 +41,7 @@
                                             <td>{{ $b->nama_satker }}</td>
                                             <td>{{ $b->alamat }}</td>
                                             <td>{{ $b->kota }}</td>
+                                            <td>{{ $b->tipebalai->nama_tipe }}</td>
                                             <td>
                                                 <a href="{{ route('balai.edit', $b->id) }}" class="btn btn-warning"
                                                     title="Edit"><i class="fas fa-edit"></i></a>
