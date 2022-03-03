@@ -51,6 +51,14 @@ Route::resource('jabatan', \App\Http\Controllers\JabatanController::class);
 
 //test QRCODE
 Route::get('qrcode', function () {
-    return \QrCode::size('500')->generate('https://www.google.com');
+    return \QrCode::size('500')
+            ->style('round')
+            ->backgroundColor(255, 255, 255)
+            ->color(52,152,219)
+            ->eye('square')
+            ->generate('https://www.google.com');
     // return response($image)->header('Content-type', 'image/png');
 });
+
+//rute alat
+Route::resource('alat', \App\Http\Controllers\AlatController::class);

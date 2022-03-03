@@ -15,6 +15,7 @@ class AlatController extends Controller
     public function index()
     {
         //
+        return view('alat.index');
     }
 
     /**
@@ -25,6 +26,7 @@ class AlatController extends Controller
     public function create()
     {
         //
+        return view('alat.create');
     }
 
     /**
