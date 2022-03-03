@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,5 +51,6 @@ Route::resource('jabatan', \App\Http\Controllers\JabatanController::class);
 
 //test QRCODE
 Route::get('qrcode', function () {
-    return QrCode::size(250)->generate('https://www.google.com');
+    return \QrCode::size('500')->generate('https://www.google.com');
+    // return response($image)->header('Content-type', 'image/png');
 });
