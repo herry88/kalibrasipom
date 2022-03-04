@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jabatan;
+use App\Models\Alat;
 use Illuminate\Http\Request;
 
-class JabatanController extends Controller
+class AlatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class JabatanController extends Controller
     public function index()
     {
         //
-        return view('jabatan.index');
+        return view('alat.index');
     }
 
     /**
@@ -26,6 +26,7 @@ class JabatanController extends Controller
     public function create()
     {
         //
+        return view('alat.create');
     }
 
     /**
@@ -42,10 +43,10 @@ class JabatanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Jabatan  $jabatan
+     * @param  \App\Models\Alat  $alat
      * @return \Illuminate\Http\Response
      */
-    public function show(Jabatan $jabatan)
+    public function show(Alat $alat)
     {
         //
     }
@@ -53,10 +54,10 @@ class JabatanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Jabatan  $jabatan
+     * @param  \App\Models\Alat  $alat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jabatan $jabatan)
+    public function edit(Alat $alat)
     {
         //
     }
@@ -65,10 +66,10 @@ class JabatanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Jabatan  $jabatan
+     * @param  \App\Models\Alat  $alat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jabatan $jabatan)
+    public function update(Request $request, Alat $alat)
     {
         //
     }
@@ -76,10 +77,10 @@ class JabatanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Jabatan  $jabatan
+     * @param  \App\Models\Alat  $alat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jabatan $jabatan)
+    public function destroy(Alat $alat)
     {
         //
     }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,19 @@ Route::get('balai/destroy/{id}',[\App\Http\Controllers\BalaiController::class, '
 Route::resource('tipebalai', \App\Http\Controllers\TipeBalaiController::class);
 //rute untuk destroy tipe balai
 Route::get('tipebalai/destroy/{id}',[\App\Http\Controllers\TipeBalaiController::class, 'destroy'])->name('tipebalai.destroy');
+
+Route::resource('jabatan', \App\Http\Controllers\JabatanController::class);
+
+//test QRCODE
+Route::get('qrcode', function () {
+    return \QrCode::size('500')
+            ->style('round')
+            ->backgroundColor(255, 255, 255)
+            ->color(52,152,219)
+            ->eye('square')
+            ->generate('https://www.google.com');
+    // return response($image)->header('Content-type', 'image/png');
+});
+
+//rute alat
+Route::resource('alat', \App\Http\Controllers\AlatController::class);
