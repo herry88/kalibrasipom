@@ -28,11 +28,25 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Alat</th>
+                                        <th>Merk</th>
+                                        <th>Tipe Alat</th>
+                                        <th>Satker</th>
                                         <th>Images</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-
+                                <tbody>
+                                    <tr>
+                                        @foreach ($alat as $item)
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->nm_alat }}</td>
+                                            <td>{{ $item->merk }}</td>
+                                            <td>{{ $item->tipe }}</td>
+                                            <td>{{ $item->balai_id }}</td>
+                                            <td>{{ $item->image }}</td>
+                                        @endforeach
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>

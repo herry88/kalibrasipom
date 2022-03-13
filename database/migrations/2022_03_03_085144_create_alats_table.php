@@ -16,7 +16,10 @@ class CreateAlatsTable extends Migration
         Schema::create('alats', function (Blueprint $table) {
             $table->id();
             $table->string('nm_alat')->nullable();
-            $table->string('image')->nullable();
+            $table->string('merk')->nullable();
+            $table->string('tipe')->nullable();
+            $table->foreignId('balai_id')->constrained('balais');
+            $table->string('image');
             $table->timestamps();
         });
     }
