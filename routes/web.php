@@ -59,6 +59,6 @@ Route::get('qrcode', function () {
             ->generate('https://www.google.com');
     // return response($image)->header('Content-type', 'image/png');
 });
-
+//deploylaravel heroku
 //rute alat
 Route::resource('alat', \App\Http\Controllers\AlatController::class);
