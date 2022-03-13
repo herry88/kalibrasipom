@@ -16,7 +16,7 @@ class CreateAlatsTable extends Migration
         Schema::create('alats', function (Blueprint $table) {
             $table->id();
             $table->string('nm_alat')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }

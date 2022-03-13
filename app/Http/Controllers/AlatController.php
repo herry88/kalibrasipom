@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AlatController extends Controller
 {
@@ -37,7 +38,28 @@ class AlatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validasi
+        $this->validate($request,[
+            'nm_alat' => 'required',
+            'image' => 'nullable|image',
+        ]);
+        //deklarasi image
+        $image_path = '';
+        //jika ada image
+        if($request->hasFile('image')){
+            $image_path = $request->file('image')->store('alat','public');
+        }
+        //insert data
+        $alat = Alat::create([
+            'nm_alat' => $request->nm_alat,
+            'image' => $image_path,
+        ]);
+        //redirect
+        if(!$alat){
+            return redirect()->back()->with('error','Error Ada Yang Salah');
+        }else{
+            return redirect()->route('alat.index')->with('success','Data Berhasil Ditambahkan');
+        }
     }
 
     /**
