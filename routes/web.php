@@ -62,3 +62,7 @@ Route::get('qrcode', function () {
 //deploylaravel heroku
 //rute alat
 Route::resource('alat', \App\Http\Controllers\AlatController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
