@@ -16,7 +16,8 @@ class AlatController extends Controller
     public function index()
     {
         //
-        return view('alat.index');
+        $alat = Alat::all();
+        return view('alat.index', compact('alat'));
     }
 
     /**
