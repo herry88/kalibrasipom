@@ -43,7 +43,7 @@
                                             <td>{{ $item->merk }}</td>
                                             <td>{{ $item->tipe }}</td>
                                             <td>{{ $item->balai_id }}</td>
-                                            <td>{{ $item->image }}</td>
+                                            <td><img src="{{ Storage::url($item->image) }}" width="200" height="200"></td>
                                         @endforeach
                                     </tr>
                                 </tbody>

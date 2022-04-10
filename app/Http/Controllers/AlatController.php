@@ -16,7 +16,7 @@ class AlatController extends Controller
     public function index()
     {
         //
-        $alat = Alat::all();
+        $alat = Alat::all(); //select * from alats
         return view('alat.index', compact('alat'));
     }
 
@@ -42,6 +42,9 @@ class AlatController extends Controller
         //validasi
         $this->validate($request,[
             'nm_alat' => 'required',
+            'merk' => 'required',
+            'tipe'=>'required',
+            'balai_id'=>'required',
             'image' => 'nullable|image',
         ]);
         //deklarasi image
@@ -53,6 +56,9 @@ class AlatController extends Controller
         //insert data
         $alat = Alat::create([
             'nm_alat' => $request->nm_alat,
+            'merk' => $request->merk,
+            'tipe' => $request->tipe,
+            'balai_id' => $request->balai_id,
             'image' => $image_path,
         ]);
         //redirect

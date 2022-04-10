@@ -9,4 +9,5 @@ class Alat extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    // protected $fillable = ['nm_alat', 'merk', 'tipe', 'balai_id', 'image'];
 }
