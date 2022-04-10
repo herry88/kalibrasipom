@@ -13,10 +13,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+
+
 //default laravel
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
 
 //rute baru
 Route::get('hello', function () {
@@ -36,9 +44,21 @@ Route::get('belajar',[\App\Http\Controllers\BelajarController::class, 'jumlah'])
 //rute to controller to views
 Route::get('list-product', [\App\Http\Controllers\BelajarController::class, 'product']);
 
+//custom prefix url laravel
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('admin', function () {
+        return '<h1>Halaman Admin</h1>';
+    });
+});
+
+Route::group(['prefix' => 'kadis'], function () {
+    Route::get('kadis-rute', function () {
+        return '<h1>Halaman Kadis</h1>';
+    });
+});
 
 //rute for balai
-Route::resource('balai', \App\Http\Controllers\BalaiController::class);
+Route::resource('balai', \App\Http\Controllers\BalaiController::class)->middleware('auth');
 //rute untuk delete balai
 Route::get('balai/destroy/{id}',[\App\Http\Controllers\BalaiController::class, 'destroy'])->name('balai.destroy');
 
