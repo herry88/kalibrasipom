@@ -34,6 +34,18 @@
                                 <td><input type="text" name="nm_alat" class="form-control"></td>
                             </tr>
                             <tr>
+                                <td>Merk Alat</td>
+                                <td><input type="text" name="merk" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Tipe Alat</td>
+                                <td><input type="text" name="tipe" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Satker</td>
+                                <td><input type="text" name="balai_id" value="1" class="form-control"></td>
+                            </tr>
+                            <tr>
                                 <td>Image</td>
                                 <td><input type="file" name="image" class="form-control"></td>
                             </tr>
