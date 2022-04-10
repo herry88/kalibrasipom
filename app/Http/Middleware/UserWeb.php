@@ -16,6 +16,9 @@ class UserWeb
      */
     public function handle(Request $request, Closure $next)
     {
+        if (Auth::user()->level != 'user') {
+            return redirect(404);
+        }
         return $next($request);
     }
 }

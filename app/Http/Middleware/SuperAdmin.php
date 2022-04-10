@@ -16,6 +16,9 @@ class SuperAdmin
      */
     public function handle(Request $request, Closure $next)
     {
+        if (Auth::user()->level != 'superadmin') {
+            return redirect(404);
+        }
         return $next($request);
     }
 }

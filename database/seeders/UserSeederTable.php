@@ -44,5 +44,8 @@ class UserSeederTable extends Seeder
                 'updated_at' => now(),
             ]
         ];
+        foreach ($users as $user) {
+            \App\Models\User::create($user);
+        }
     }
 }
